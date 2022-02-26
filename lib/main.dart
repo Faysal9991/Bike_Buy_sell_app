@@ -55,11 +55,16 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class _SliderView extends StatelessWidget {
+class _SliderView extends StatefulWidget {
   final Function(String)? onItemClick;
 
   const _SliderView({Key? key, this.onItemClick}) : super(key: key);
 
+  @override
+  State<_SliderView> createState() => _SliderViewState();
+}
+
+class _SliderViewState extends State<_SliderView> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -94,23 +99,23 @@ class _SliderView extends StatelessWidget {
             height: 20,
           ),
           _SliderMenuItem(
-              title: 'Home', iconData: Icons.home, onTap: onItemClick),
+              title: 'Home', iconData: Icons.home, onTap: widget.onItemClick),
           _SliderMenuItem(
               title: 'Add Post',
               iconData: Icons.add_circle,
-              onTap: onItemClick),
+              onTap: widget.onItemClick),
           _SliderMenuItem(
               title: 'Notification',
               iconData: Icons.notifications_active,
-              onTap: onItemClick),
+              onTap: widget.onItemClick),
           _SliderMenuItem(
-              title: 'Likes', iconData: Icons.favorite, onTap: onItemClick),
+              title: 'Likes', iconData: Icons.favorite, onTap: widget.onItemClick),
           _SliderMenuItem(
-              title: 'Setting', iconData: Icons.settings, onTap: onItemClick),
+              title: 'Setting', iconData: Icons.settings, onTap: widget.onItemClick),
           _SliderMenuItem(
               title: 'LogOut',
               iconData: Icons.arrow_back_ios,
-              onTap: onItemClick),
+              onTap: widget.onItemClick),
         ],
       ),
     );
