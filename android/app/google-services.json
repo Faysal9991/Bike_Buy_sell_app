@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "286484846542",
+    "project_id": "flutter-bike-app",
+    "storage_bucket": "flutter-bike-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286484846542:android:ee2e22d7754d2f7b4a7d9f",
+        "android_client_info": {
+          "package_name": "com.example.bikesellapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "286484846542-r87qttddc7un53rmtsgitf65ar9j3epf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmCWbh3IwsuSI0MsWHIQFayiWxH5Q6qh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "286484846542-r87qttddc7un53rmtsgitf65ar9j3epf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
