@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    title = "Home";
+    title = "your location";
     super.initState();
   }
 
@@ -27,29 +27,32 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: SliderDrawer(
-            appBar: SliderAppBar(
-                appBarColor: Colors.white,
-                trailing: CircleAvatar(radius: 12,
-                  backgroundColor: Color(0xffd4d181),
-                  child: Icon(Icons.favorite,
-                    color: Colors.pink,
-                    size: 24.0),
-                ),
-                title: Text(title,
-                    style: const TextStyle(
-                        fontSize: 22, fontWeight: FontWeight.w700))),
-            key: _key,
-            sliderOpenSize: 179,
-            slider: _SliderView(
-              onItemClick: (title) {
-                _key.currentState!.closeSlider();
-                setState(() {
-                  this.title = title;
-                });
-              },
-            ),
-            child: HomePageBody()),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SliderDrawer(
+              appBar: SliderAppBar(
+                  appBarColor: Colors.white,
+                  trailing: Icon(Icons.add_location,
+                    color: Colors.black,
+                    size: 30.0),
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 15,left: 175),
+                    child: Text(title,
+                        style: const TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w700)),
+                  )),
+              key: _key,
+              sliderOpenSize: 179,
+              slider: _SliderView(
+                onItemClick: (title) {
+                  _key.currentState!.closeSlider();
+                  setState(() {
+                    this.title = title;
+                  });
+                },
+              ),
+              child: HomePageBody()),
+        ),
       ),
     );
   }
@@ -81,7 +84,7 @@ class _SliderViewState extends State<_SliderView> {
             backgroundColor: Colors.grey,
             child: CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage('assets/images/user_profile.jpg'),
+              // backgroundImage: AssetImage(),
             ),
           ),
           SizedBox(
