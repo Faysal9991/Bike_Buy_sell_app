@@ -1,5 +1,4 @@
-import 'package:bikesellapp/home_ui/home_page.dart';
-import 'package:bikesellapp/login__ui/login_controler.dart';
+import 'package:bikesellapp/controller/login_controler.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:google_fonts/google_fonts.dart';

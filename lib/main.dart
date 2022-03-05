@@ -1,10 +1,10 @@
-import 'package:bikesellapp/home_ui/home_page.dart';
+import 'package:bikesellapp/screens/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'login__ui/login_controler.dart';
-import 'login__ui/login_page.dart';
+import 'controller/login_controler.dart';
+import 'screens/login_page.dart';
 
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();
