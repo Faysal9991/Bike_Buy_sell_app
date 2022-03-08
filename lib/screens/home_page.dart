@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class HomePage extends StatelessWidget {
    HomePage({Key? key}) : super(key: key);
   final controller = Get.put(LoginController());
-  final brcontroller = Get.put(BrandController());
+  final brandcontroller = Get.put(BrandController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,15 +17,21 @@ class HomePage extends StatelessWidget {
           Text(controller.googleAccount.value?.displayName??'',style: TextStyle(fontSize: 69),),
          Row(
            children: [
-             Obx(()=>GridView.count(
-        crossAxisCount: 2,
-        childAspectRatio: .63,
-        padding: const EdgeInsets.all(10),
-        mainAxisSpacing: 4.0,
-        crossAxisSpacing: 10,
+             Expanded(child: GetX<BrandController>(
+               builder: (controller){
+                 return ListView.builder(
+                   itemCount: controller.Bike_Logo_png.length,
+                     itemBuilder:(context, index){
+                     return Column(
+                       children: [
+                         Container(
 
-    )
-    )
+                             child: Text(controller.Bike_Logo_png[index].name))
+                       ],
+                     );
+                     }) ;
+               },
+             ))
            ],
          )
         ],
