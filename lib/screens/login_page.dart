@@ -43,7 +43,9 @@ class loginPage extends StatelessWidget {
               padding: EdgeInsets.only(left: width*0.5),
               child: Text("  উপদেশ নয় পরামর্শ।",style: GoogleFonts.lato(fontWeight: FontWeight.bold,fontSize: height*0.015,color: Colors.white,)),
             ),
-            ElevatedButton.icon (onPressed: (){controller.login();},
+            ElevatedButton.icon (onPressed: (
+
+                ){controller.login();},
                 style: ElevatedButton.styleFrom(
                     primary: Color(0xff2D2B2C),
                     elevation: 0,

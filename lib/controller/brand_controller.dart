@@ -5,17 +5,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 class BrandController extends GetxController{
 static BrandController instance = Get.find();
-RxList<BrandModel> Bike_Logo_png = RxList<BrandModel>([]);
-String Collection ="Bike_Logo_png";
+RxList<BrandModel> brandDetails = RxList<BrandModel>([]);
+String Collection ="brandDetails";
 
  @override
  void
- onReady() {
+ onReady(){
    super.onReady();
-   Bike_Logo_png.bindStream(getAllBike_Logo_pn());
+   brandDetails.bindStream(getAllbrndDetails());
   }
 
-Stream<List<BrandModel>> getAllBike_Logo_pn() =>
+Stream<List<BrandModel>> getAllbrndDetails() =>
     FirebaseFirestore.instance
         .collection(Collection)
         .snapshots().map((query) =>

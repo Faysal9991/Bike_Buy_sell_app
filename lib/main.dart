@@ -1,3 +1,4 @@
+import 'package:bikesellapp/controller/brand_controller.dart';
 import 'package:bikesellapp/screens/home_page.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,14 +16,15 @@ void main()async{
 class MyApp extends StatelessWidget {
    MyApp({Key? key}) : super(key: key);
   final controller = Get.put(LoginController());
+   final brandcontroller = Get.put(BrandController());
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: Obx((){
-        if(controller.googleAccount.value==null)
-          return loginPage();
-        else
-          return  HomePage();
+      home: Obx(() {
+        return
+        (controller.googleAccount.value == null) ?
+        loginPage():
+        HomePage();
       }),
 
     );

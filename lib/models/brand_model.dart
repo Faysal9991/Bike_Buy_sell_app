@@ -9,7 +9,7 @@ class BrandModel{
 
   BrandModel({required this.name,required this.png});
   BrandModel.fromMap(Map<String, dynamic> data){
-    name = data[Name];
+   name= data[Name];
     png = data[PNG];
 
   }
