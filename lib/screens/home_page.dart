@@ -15,24 +15,35 @@ class HomePage extends StatelessWidget {
     final double height=MediaQuery.of(context).size.height;
     final  double width=MediaQuery.of(context).size.width;
     return Scaffold(
+      drawer: Drawer(),
       appBar: AppBar(
         backgroundColor: Colors.green,
+
         title: Text("Home"),
       ),
       body: Column(
         children: [
-          Text("Hi My Name is Faysal",style: TextStyle(fontSize:50),),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 50,
-                width: 100,
-                decoration: BoxDecoration(
-                  color: Colors.amberAccent
-                ),
-                child: Text(controller.googleAccount.value?.displayName??'',style: TextStyle(fontSize:10),)),
+            child: Align(
+              alignment: Alignment.topLeft,
+                child: Text("Brand",
+                  style: GoogleFonts.lato(
+                      fontSize: height*0.03,
+                      shadows:[Shadow
+                        (color: Colors.black,
+                          offset: Offset(1 ,1)
+                      ),
+                        Shadow
+                          (color: Colors.black45,
+                            offset: Offset(2 ,2)
+                        )
+                      ]
+                  ),
+                )
+            ),
           ),
-         Expanded(child: GetX<BrandController>(
+          Expanded(child: GetX<BrandController>(
            builder: (controller){
              return ListView.builder(
                itemCount: controller.brandDetails.length,
@@ -41,16 +52,34 @@ class HomePage extends StatelessWidget {
                  return Column(
                    children: [
                      Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Container(
-                         height: height/5,
-                         width: width/3,
-                         decoration: BoxDecoration(color: Colors.white),
-                         child: Column(
-                           children: [
-                             Image.asset(controller.brandDetails[index].png,height: height*0.4,width: width*0.3,),
-                             Text(controller.brandDetails[index].name),
-                           ],
+                       padding:EdgeInsets.only(left: width*0.02),
+                       child: Center(
+                         child: Container(
+                           height: height/5,
+                           width: width/3,
+                           decoration: BoxDecoration(
+                             color: Colors.white,
+                           borderRadius: BorderRadius.circular(15),
+                             boxShadow: [BoxShadow(
+                            color: Colors.black45,
+                             spreadRadius: 1,
+                               blurRadius: 8,
+                               offset: Offset(4,4)
+                             ),
+                               BoxShadow(
+                                   color: Colors.white,
+                                   spreadRadius: 1,
+                                   blurRadius: 8,
+                                   offset: Offset(-4,-4)
+                               )
+                             ]
+                           ),
+                           child: Column(
+                             children: [
+                               Image.network(controller.brandDetails[index].png.toString(),height: height*0.15,width: width/1.5,),
+                               Text(controller.brandDetails[index].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
+                             ],
+                           ),
                          ),
                        ),
                      ),
