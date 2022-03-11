@@ -1,39 +1,31 @@
-class NewCollction{
+class NewCollctionmodel{
   static const Name = "name";
-  static const Png = "png";
-  static const Value = "value";
-  static const Condition = "condition";
-  static const Health = "health";
+  static const Codi_tion = "condition";
   static const Run = "run";
-  static const Model = "model";
-
+  static const Png = "png";
 
   late String name;
-  late String png;
-  late String value;
   late String condition;
-  late String health;
   late String run;
-  late String model;
+  late String png;
+  NewCollctionmodel({
 
-
-  NewCollction({
     required this.name,
-    required this.png,
-    required this.value,
     required this.condition,
-    required this.health,
     required this.run,
-    required this.model
+    required this.png,
+
+
   });
 
-  NewCollction.fromMap(Map<String, dynamic> data){
+  NewCollctionmodel.fromMap(Map<String, dynamic> data){
+
     name = data[Name];
-    png = data[Png];
-    value = data[Value];
-    condition = data[Condition];
-    health = data[Health];
+    condition = data[Codi_tion];
     run = data[Run];
-    model = data[Model];
+    png = data[Png];
+
+
+
   }
 }

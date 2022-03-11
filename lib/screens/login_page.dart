@@ -1,4 +1,6 @@
 import 'package:bikesellapp/controller/login_controler.dart';
+import 'package:bikesellapp/screens/bike_details_page.dart';
+import 'package:bikesellapp/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,13 +33,19 @@ class loginPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Padding(
-              padding:EdgeInsets.only(top: height*0.6),
-              child: Text("Wellcome to Khan Motors",style: GoogleFonts.lato(fontWeight: FontWeight.bold,fontSize: height*0.03,color: Colors.green),),
-            ),
-            Padding(
-              padding:  EdgeInsets.only(top: height*0.07),
-              child: Text("অতিরিক্ত গতি~অতিরিক্ত ক্ষতি।\n        ধীরে চলুন, দেখে চলুন।",style: GoogleFonts.lato(fontWeight: FontWeight.bold,fontSize: height*0.024,color:Color(0xffbdbdbd))),
+            ElevatedButton(onPressed: (
+
+                ){
+              Get.to(AllDetailsPage());
+            }, child: Text("Skip")),
+      Padding(
+      padding:EdgeInsets.only(top: height*0.6),
+      child: Text("Wellcome to Khan Motors",style: GoogleFonts.lato(fontWeight: FontWeight.bold,fontSize: height*0.03,color: Colors.green),),
+      ),
+      Padding(
+      padding:  EdgeInsets.only(top: height*0.07),
+      child: Text("অতিরিক্ত গতি~অতিরিক্ত ক্ষতি।\n        ধীরে চলুন, দেখে চলুন।",style: GoogleFonts.lato(fontWeight: FontWeight.bold,fontSize: height*0.024,
+      color:Color(0xffbdbdbd))),
             ),
             Padding(
               padding: EdgeInsets.only(left: width*0.5),
