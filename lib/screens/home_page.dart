@@ -119,6 +119,7 @@ class HomePage extends StatelessWidget {
                               if(index==0){
                                 Get.to(BajaDtailsPage());
                               }
+
                             },
                             child: Container(
                               height: height*0.2,
