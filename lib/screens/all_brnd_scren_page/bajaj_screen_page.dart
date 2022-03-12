@@ -1,13 +1,13 @@
-import 'package:bikesellapp/controller/all_bike_dtls_controller.dart';
+import 'package:bikesellapp/controller/all_brnd_dtils_contol/bajaj_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AllDetailsPage extends StatelessWidget {
-   AllDetailsPage({Key? key}) : super(key: key);
-  final allBikeDetailsController = Get.put(AllBikeDetailsController());
+class BajaDtailsPage extends StatelessWidget {
+  BajaDtailsPage({Key? key}) : super(key: key);
+  final bajajBikeDetailsController = Get.put(BajaController());
   @override
   Widget build(BuildContext context) {
     final double height=MediaQuery.of(context).size.height;
@@ -19,10 +19,10 @@ class AllDetailsPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Expanded(child: GetX<AllBikeDetailsController>(
+          Expanded(child: GetX<BajaController>(
             builder: (controller){
               return ListView.builder(
-                  itemCount: controller.allbikedetails.length,
+                  itemCount: controller.bajajDetails.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder:(context, index){
                     return Column(
@@ -52,7 +52,7 @@ class AllDetailsPage extends StatelessWidget {
                             child: Column(
                               children: [
                                 // Image.network(controller.brandDetails[index].png.toString(),height: height*0.15,width: width/1.5,),
-                                Text(controller.allbikedetails[index].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
+                                Text(controller.bajajDetails[index].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
                               ],
                             ),
                           ),

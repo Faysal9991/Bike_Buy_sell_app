@@ -1,6 +1,7 @@
 import 'package:bikesellapp/controller/brand_controller.dart';
 import 'package:bikesellapp/controller/login_controler.dart';
 import 'package:bikesellapp/controller/new_update_controller.dart';
+import 'package:bikesellapp/screens/all_brnd_scren_page/bajaj_screen_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -112,31 +113,39 @@ class HomePage extends StatelessWidget {
                       children: [
                         Padding(
                           padding:EdgeInsets.only(left: width*0.02),
-                          child: Container(
-                            height: height*0.2,
-                            width: width*0.31,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15),
-                                boxShadow: [BoxShadow(
-                                    color: Colors.black45,
-                                    spreadRadius: 1,
-                                    blurRadius: 8,
-                                    offset: Offset(4,4)
-                                ),
-                                  BoxShadow(
-                                      color: Colors.white,
+                          child: InkWell(
+                            onTap: (){
+                              index=index;
+                              if(index==0){
+                                Get.to(BajaDtailsPage());
+                              }
+                            },
+                            child: Container(
+                              height: height*0.2,
+                              width: width*0.31,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  boxShadow: [BoxShadow(
+                                      color: Colors.black45,
                                       spreadRadius: 1,
                                       blurRadius: 8,
-                                      offset: Offset(-4,-4)
-                                  )
-                                ]
-                            ),
-                            child: Column(
-                              children: [
-                                Image.network(controller.brandDetails[index].png.toString(),height: height*0.15,width: width/1.5,),
-                                Text(controller.brandDetails[index].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
-                              ],
+                                      offset: Offset(4,4)
+                                  ),
+                                    BoxShadow(
+                                        color: Colors.white,
+                                        spreadRadius: 1,
+                                        blurRadius: 8,
+                                        offset: Offset(-4,-4)
+                                    )
+                                  ]
+                              ),
+                              child: Column(
+                                children: [
+                                  Image.network(controller.brandDetails[index].png.toString(),height: height*0.15,width: width/1.5,),
+                                  Text(controller.brandDetails[index].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -166,46 +175,62 @@ class HomePage extends StatelessWidget {
                   itemCount: controller.updateBike.length,
                   scrollDirection: Axis.vertical,
                   itemBuilder:(context, index){
-                    return Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: InkWell(
-                            child: Container(
-                              height: height*0.09,
-                              width: width,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(5),
-                                  boxShadow: [BoxShadow(
-                                      color: Colors.black45,
-                                      spreadRadius: 1,
-                                      blurRadius: 8,
-                                      offset: Offset(4,4)
-                                  ),
-                                    BoxShadow(
-                                        color: Colors.white,
-                                        spreadRadius: 1,
-                                        blurRadius: 8,
-                                        offset: Offset(-4,-4)
-                                    )
-                                  ]
-                              ),
-                              child: Row(
-                                children: [
-                                  Image.network(controller.updateBike[index].png.toString(),height: height*0.15,width: width/1.5,),
-                                  Text(controller.updateBike[index].name,style: GoogleFonts.lato(fontSize: height*0.02,fontWeight: FontWeight.bold),),
-                                Column(
-                                  children: [
-                                    Text(controller.updateBike[index].condition)
-                                  ],
-                                )
-                                ],
-                              ),
-                            ),
+                    return Card(
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                  height: height*0.1,
+                                  width: width*0.31,
+                                  child: Image.network(controller.updateBike[index].png,)),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(controller.updateBike[index].name,style: GoogleFonts.lato(),),
+                              )
+                            ],
                           ),
-                        ),
-                      ],
+                          Text("Tap For More\n                   Details",style: GoogleFonts.lato(fontSize: height*0.02),),
+                          Spacer(),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+
+                                Row(
+                                  children: [
+                                    Text("Run: ",style: GoogleFonts.lato(),),
+                                    Text(controller.updateBike[index].run,style: GoogleFonts.lato(fontWeight: FontWeight.bold),),
+
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text("Price: ",style: GoogleFonts.lato(),),
+                                    Text(controller.updateBike[index].price,style: GoogleFonts.lato(fontWeight: FontWeight.bold),),
+
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text("Condition ",style: GoogleFonts.lato(),),
+                                    Text(controller.updateBike[index].condition,style: GoogleFonts.lato(fontWeight: FontWeight.bold),),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text("Rating: ",style: GoogleFonts.lato(),),
+                                    Text(controller.updateBike[index].rating,style: GoogleFonts.lato(fontWeight: FontWeight.bold),),
+                                    Icon(Icons.star,color: Colors.yellow,size: height*0.023,)
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     );
                   }
               ) ;

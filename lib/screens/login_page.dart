@@ -1,8 +1,6 @@
 import 'package:bikesellapp/controller/login_controler.dart';
-import 'package:bikesellapp/screens/bike_details_page.dart';
-import 'package:bikesellapp/screens/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -33,11 +31,7 @@ class loginPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            ElevatedButton(onPressed: (
-
-                ){
-              Get.to(AllDetailsPage());
-            }, child: Text("Skip")),
+            
       Padding(
       padding:EdgeInsets.only(top: height*0.6),
       child: Text("Wellcome to Khan Motors",style: GoogleFonts.lato(fontWeight: FontWeight.bold,fontSize: height*0.03,color: Colors.green),),
