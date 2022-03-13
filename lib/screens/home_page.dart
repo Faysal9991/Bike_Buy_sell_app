@@ -2,6 +2,12 @@ import 'package:bikesellapp/controller/brand_controller.dart';
 import 'package:bikesellapp/controller/login_controler.dart';
 import 'package:bikesellapp/controller/new_update_controller.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/bajaj_screen_page.dart';
+import 'package:bikesellapp/screens/all_brnd_scren_page/hero_screen_page.dart';
+import 'package:bikesellapp/screens/all_brnd_scren_page/ranner_screen_page.dart';
+import 'package:bikesellapp/screens/all_brnd_scren_page/suzuki_screen_page.dart';
+import 'package:bikesellapp/screens/all_brnd_scren_page/tvs_screen_page.dart';
+import 'package:bikesellapp/screens/all_brnd_scren_page/waton_screen_page.dart';
+import 'package:bikesellapp/screens/all_brnd_scren_page/yamha_screen_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -119,8 +125,32 @@ class HomePage extends StatelessWidget {
                               if(index==0){
                                 Get.to(BajaDtailsPage());
                               }
-
+                              else if(index==1)
+                              {
+                                Get.to(HeroDtailsPage());
+                              }
+                              else if(index==2)
+                              {
+                                Get.to(RunnerDtailsPage());
+                              }
+                              else if(index==3)
+                              {
+                                Get.to(SuziKiDtailsPage());
+                              }
+                              else if(index==4)
+                              {
+                                Get.to(TvsDtailsPage());
+                              }
+                              else if(index==5)
+                              {
+                                Get.to(WatlonDtailsPage());
+                              }
+                              else if(index==6)
+                              {
+                                Get.to(YamhaDtailsPage());
+                              }
                             },
+
                             child: Container(
                               height: height*0.2,
                               width: width*0.31,

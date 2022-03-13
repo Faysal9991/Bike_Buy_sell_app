@@ -23,41 +23,15 @@ class BajaDtailsPage extends StatelessWidget {
             builder: (controller){
               return ListView.builder(
                   itemCount: controller.bajajDetails.length,
-                  scrollDirection: Axis.horizontal,
+                  scrollDirection: Axis.vertical,
                   itemBuilder:(context, index){
-                    return Column(
-                      children: [
-                        Padding(
-                          padding:EdgeInsets.only(left: width*0.02),
-                          child: Container(
-                            height: height*0.2,
-                            width: width*0.31,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15),
-                                boxShadow: [BoxShadow(
-                                    color: Colors.black45,
-                                    spreadRadius: 1,
-                                    blurRadius: 8,
-                                    offset: Offset(4,4)
-                                ),
-                                  BoxShadow(
-                                      color: Colors.white,
-                                      spreadRadius: 1,
-                                      blurRadius: 8,
-                                      offset: Offset(-4,-4)
-                                  )
-                                ]
-                            ),
-                            child: Column(
-                              children: [
-                                // Image.network(controller.brandDetails[index].png.toString(),height: height*0.15,width: width/1.5,),
-                                Text(controller.bajajDetails[index].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
+                    return Card(
+                      child: Row(
+                        children: [
+                          Image.network(controller.bajajDetails[index].png.toString(),height: height*0.08,),
+                          Text(controller.bajajDetails[index].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
+                        ],
+                      ),
                     );
                   }) ;
             },
