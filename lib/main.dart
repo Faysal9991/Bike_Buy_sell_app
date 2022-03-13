@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'controller/login_controler.dart';
 import 'screens/login_page.dart';
 
@@ -22,12 +23,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       home: Obx((){
-       if (controller.googleAccount.value == null)
-       return loginPage();
+       if (controller.googleAccount.value!=null.obs)
+       return HomePage();
        else
-         return
-        HomePage();
-      }),
+         return loginPage();
+      }
+
+      ),
 
     );
   }
