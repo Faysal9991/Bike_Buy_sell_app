@@ -3,10 +3,8 @@ class BajajDetailsModel{
   static const Health = "health";
   static const Price = "price";
   static const Png = "png";
-
   static const Cc = "cc";
   static const Papers = "papers";
-  static const Rationg = "rating";
   static const Engcondition = "engcondition";
   static const Bncng = "bncng";
   static const Model = "model";
@@ -23,13 +21,13 @@ class BajajDetailsModel{
 
 
 
+
   late String name;
   late String health;
   late String price;
   late String png;
   late String cc;
   late String papers;
-  late String rating;
   late String engcondition;
   late String bncng;
   late String model;
@@ -44,13 +42,13 @@ class BajajDetailsModel{
 
 
 
+
   BajajDetailsModel({
     required this.name,
     required this.health,
     required this.price,
     required this.png,
     required this.papers,
-    required this.rating,
     required this.engcondition,
     required this.bncng,
     required this.model,
@@ -64,6 +62,7 @@ class BajajDetailsModel{
     required this.bkrun,
 
 
+
   });
   BajajDetailsModel.fromMap(Map<String, dynamic> data){
     name= data[Name];
@@ -72,7 +71,6 @@ class BajajDetailsModel{
     png= data[Png];
     cc = data[Cc];
     papers = data[Papers];
-    rating = data[Rationg];
     engcondition = data[Engcondition];
     bncng = data[Bncng];
     model = data[Model];

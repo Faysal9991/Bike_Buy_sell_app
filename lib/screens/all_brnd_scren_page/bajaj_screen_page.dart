@@ -1,6 +1,5 @@
 import 'package:bikesellapp/controller/all_brnd_dtils_contol/bajaj_contoller.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/gallary_photo_viewer.dart';
-import 'package:bikesellapp/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
@@ -106,60 +105,56 @@ class BajaDtailsPage extends StatelessWidget {
                                       ),
                                       Row(
                                         children: [
-                                          Text("Run"),
+                                          Text("Run",style: GoogleFonts.lato(color: Colors.white),),
                                           Text(
                                             controller.bajajDetails[index].bkrun,
-                                            style: TextStyle(
+                                            style: GoogleFonts.lato(
                                               color: Colors.white,
-                                              fontFamily: 'Avenir',
                                             ),
                                           ),
                                         ],
                                       ),
                                       Row(
                                         children: [
-                                          Text("Cc"),
+                                          Text("Cc",style: GoogleFonts.lato(color: Colors.white)),
                                           Text(
                                             controller.bajajDetails[index].cc,
-                                            style: TextStyle(
+                                            style: GoogleFonts.lato(
                                               color: Colors.white,
-                                              fontFamily: 'Avenir',
                                             ),
                                           ),
                                         ],
                                       ),
                                       Row(
                                         children: [
-                                          Text("Price"),
+                                          Text("Price: ",style: GoogleFonts.lato(color: Colors.white)),
                                           Text(
                                             controller.bajajDetails[index].price,
-                                            style: TextStyle(
+                                            style: GoogleFonts.lato(
                                               color: Colors.white,
-                                              fontFamily: 'Avenir',
                                             ),
                                           ),
                                         ],
                                       ),
                                       Row(
                                         children: [
-                                          Text("Engine Condition"),
+                                          Text("Engine Condition: ",style: GoogleFonts.lato(color: Colors.white)),
                                           Text(
                                             controller.bajajDetails[index].engcondition,
-                                            style: TextStyle(
+                                            style: GoogleFonts.lato(
                                               color: Colors.white,
-                                              fontFamily: 'Avenir',
                                             ),
                                           ),
                                         ],
                                       ),
                                       Row(
                                         children: [
-                                          Text("Paper"),
+                                          Text("Paper",style: GoogleFonts.lato(color: Colors.white)),
                                           Text(
                                             controller.bajajDetails[index].papers,
-                                            style: TextStyle(
+                                            style: GoogleFonts.lato(
                                               color: Colors.white,
-                                              fontFamily: 'Avenir',
+
                                             ),
                                           ),
                                         ],
@@ -178,12 +173,10 @@ class BajaDtailsPage extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-
-
                                       Row(
-                                        children: <Widget>[
+                                        children:[
                                           Icon(
-                                            Icons.location_on,
+                                            Icons.insert_photo_rounded ,
                                             color: Colors.white,
                                             size: 16,
                                           ),
@@ -192,7 +185,7 @@ class BajaDtailsPage extends StatelessWidget {
                                           ),
                                           Flexible(
                                             child: Text(
-                                              "",
+                                              "Tap For View Bike Photo",
                                               style: TextStyle(
                                                 color: Colors.white,
                                                 fontFamily: 'Avenir',
@@ -223,14 +216,27 @@ class BajaDtailsPage extends StatelessWidget {
                                             color: Colors.white,
                                             fontSize: height*0.01,
                                           ),),
-                                          Text(controller.bajajDetails[index].health),
+                                          Text(controller.bajajDetails[index].health,style: GoogleFonts.lato(
+                                            color: Colors.white,
+                                            fontSize: height*0.01,
+                                          ),),
                                         ],
                                       ),
                                       Row(
                                         children: [
-                                          Text(controller.bajajDetails[index].rating),
+                                          Icon(Icons.star_border_purple500_rounded,color: Colors.yellow,size: 15, ),
+                                          Icon(Icons.star_border_purple500_rounded,color: Colors.yellow,size: 15, ),
+                                          Icon(Icons.star_border_purple500_rounded,color: Colors.yellow,size: 15, ),
+                                          Icon(Icons.star_border_purple500_rounded,color: Colors.yellow,size: 15, ),
 
-                                          Icon(Icons.star_border_purple500_rounded )
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+
+                                          Text(controller.bajajDetails[index].model,style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
+                                          Text("contact with us",style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
+                                          Text("01921133520",style: GoogleFonts.lato(color: Colors.black,fontSize: height*0.009)),
                                         ],
                                       ),
                                       // RatingBar(rating: controller.bajajDetails[index].rating.toDouble()),
