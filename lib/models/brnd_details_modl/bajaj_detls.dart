@@ -3,7 +3,7 @@ class BajajDetailsModel{
   static const Health = "health";
   static const Price = "price";
   static const Png = "png";
-  static const Bikecolor = "bikecolor";
+
   static const Cc = "cc";
   static const Papers = "papers";
   static const Rationg = "rating";
@@ -27,7 +27,6 @@ class BajajDetailsModel{
   late String health;
   late String price;
   late String png;
-  late String bikecolor;
   late String cc;
   late String papers;
   late String rating;
@@ -50,7 +49,6 @@ class BajajDetailsModel{
     required this.health,
     required this.price,
     required this.png,
-    required this.bikecolor,
     required this.papers,
     required this.rating,
     required this.engcondition,
@@ -72,7 +70,6 @@ class BajajDetailsModel{
     health= data[Health];
     price= data[Price];
     png= data[Png];
-    bikecolor= data[Bikecolor];
     cc = data[Cc];
     papers = data[Papers];
     rating = data[Rationg];
