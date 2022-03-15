@@ -189,7 +189,7 @@ packages:
     source: hosted
     version: "1.0.4"
   flutter_slider_drawer:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: flutter_slider_drawer
       url: "https://pub.dartlang.org"

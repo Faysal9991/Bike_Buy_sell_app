@@ -3,8 +3,11 @@ import 'package:bikesellapp/controller/login_controler.dart';
 import 'package:bikesellapp/controller/new_update_controller.dart';
 import 'package:bikesellapp/controller/offer_controller.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/bajaj_screen_page.dart';
+import 'package:bikesellapp/screens/all_brnd_scren_page/hero_screen_page.dart';
+import 'package:bikesellapp/screens/all_brnd_scren_page/ranner_screen_page.dart';
+import 'package:bikesellapp/screens/all_brnd_scren_page/suzuki_screen_page.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/tvs_screen_page.dart';
-
+import 'package:bikesellapp/screens/all_brnd_scren_page/yamha_screen_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -12,6 +15,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:clay_containers/clay_containers.dart';
 import 'dart:ui' as ui;
+import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -81,6 +85,7 @@ class HomePage extends StatelessWidget {
                     return SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
+
                         children: [//TVS
                           Padding(
                             padding:EdgeInsets.only(left: width*0.02),
@@ -312,6 +317,7 @@ class HomePage extends StatelessWidget {
                       ),
                     );
             }),
+
           Text("New Collction", style: GoogleFonts.lato(
               fontSize: height*0.02,fontWeight: FontWeight.bold
           ),),
