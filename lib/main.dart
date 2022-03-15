@@ -1,11 +1,11 @@
 import 'package:bikesellapp/controller/brand_controller.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:bikesellapp/controller/new_update_controller.dart';
 import 'package:bikesellapp/screens/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'controller/login_controler.dart';
 import 'screens/login_page.dart';
 
