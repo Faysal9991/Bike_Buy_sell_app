@@ -8,6 +8,7 @@ import 'package:bikesellapp/controller/all_brnd_dtils_contol/walton_controller.d
 import 'package:bikesellapp/controller/all_brnd_dtils_contol/yamha_controller.dart';
 import 'package:bikesellapp/controller/brand_controller.dart';
 import 'package:bikesellapp/controller/new_update_controller.dart';
+import 'package:bikesellapp/controller/offer_controller.dart';
 BrandController brandController = BrandController.instance;
 UpdateController updateController = UpdateController.instance;
 BajaController bajaController = BajaController.instance;
@@ -17,3 +18,4 @@ SuzukiController suzukiController = SuzukiController.instance;
 TvsController tvsController = TvsController.instance;
 WaltonController waltonController = WaltonController.instance;
 YamhaController yamhaController = YamhaController.instance;
+OfferController offerController = OfferController.instance;

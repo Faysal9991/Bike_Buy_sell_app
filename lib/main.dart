@@ -1,5 +1,4 @@
 import 'package:bikesellapp/controller/brand_controller.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:bikesellapp/controller/new_update_controller.dart';
 import 'package:bikesellapp/screens/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
