@@ -15,11 +15,6 @@ class loginPage extends StatelessWidget {
 
 
     return Scaffold(
-        // appBar: AppBar(
-        //
-        //   backgroundColor: Colors.black,
-        //   title: Text('Google Sign In(sing'+(user== null?'out':'in')+')'),
-        // ),
       body: Container(
         height: height,
         width: width,
@@ -32,7 +27,7 @@ class loginPage extends StatelessWidget {
           children: [
             
       Padding(
-      padding:EdgeInsets.only(top: height*0.6),
+      padding:EdgeInsets.only(top: height*0.7),
       child: Text("Wellcome to Khan Motors",style: GoogleFonts.lato(fontWeight: FontWeight.bold,fontSize: height*0.03,color: Colors.green),),
       ),
       Padding(
@@ -54,7 +49,7 @@ class loginPage extends StatelessWidget {
                 ),
                 icon:FaIcon(FontAwesomeIcons.google,color: Colors.red,),
                 label:  Text(" Google sign in",style: GoogleFonts.lato(color: Colors.green),)
-            )
+            ),
 
 
 

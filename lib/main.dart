@@ -22,13 +22,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       home: Obx((){
-       if (controller.googleAccount.value!=null.obs)
-       return HomePage();
+       if (controller.googleAccount.value?.id==null)
+       return loginPage();
        else
-         return loginPage();
-      }
-
-      ),
+         return HomePage();
+       }
+       ),
 
     );
   }

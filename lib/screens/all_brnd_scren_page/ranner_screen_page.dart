@@ -1,5 +1,6 @@
 
 import 'package:bikesellapp/controller/all_brnd_dtils_contol/hero_contoller.dart';
+import 'package:bikesellapp/controller/all_brnd_dtils_contol/runner_controller.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/gallary_photo_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,7 +12,7 @@ import 'dart:ui' as ui;
 class RunnerDtailsPage extends StatelessWidget {
   RunnerDtailsPage({Key? key}) : super(key: key);
   final double _borderRadius = 24;
-  final heroBikeDetailsController = Get.put(HrController());
+  final heroBikeDetailsController = Get.put(RunnerController());
   @override
   Widget build(BuildContext context) {
     final double height=MediaQuery.of(context).size.height;
@@ -19,25 +20,25 @@ class RunnerDtailsPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
-          title: Text("Hi"),
+          title: Text("Runner Brands All Bike",style: GoogleFonts.lato(),),
         ),
         body: Column(
             children: [
-              Expanded(child: GetX<HrController>(
+              Expanded(child: GetX<RunnerController>(
                   builder: (controller) {
                     return ListView.builder(
-                      itemCount: controller.heroDetails.length,
+                      itemCount: controller.runnerDetails.length,
                       scrollDirection: Axis.vertical,
                       itemBuilder: (context, index) {
                         return InkWell(onTap: () {
                           Get.to(PhotoViewgallry(
-                            photo1: controller.heroDetails[index].fullphoto,
-                            photo2: controller.heroDetails[index].sidephoto,
-                            photo3: controller.heroDetails[index].thirdphoto,
-                            photo4: controller.heroDetails[index].forthphoto,
-                            photo5: controller.heroDetails[index].fifthphoto,
-                            photo6: controller.heroDetails[index].sixthphoto,
-                            photo7: controller.heroDetails[index].saventhphoto,
+                            photo1: controller.runnerDetails[index].fullphoto,
+                            photo2: controller.runnerDetails[index].sidephoto,
+                            photo3: controller.runnerDetails[index].thirdphoto,
+                            photo4: controller.runnerDetails[index].forthphoto,
+                            photo5: controller.runnerDetails[index].fifthphoto,
+                            photo6: controller.runnerDetails[index].sixthphoto,
+                            photo7: controller.runnerDetails[index].saventhphoto,
                           ));
                         },
                           child: Card(
@@ -85,7 +86,7 @@ class RunnerDtailsPage extends StatelessWidget {
                                           radius: height,
                                           backgroundColor: Color(0xffeaeded),
                                           child: Image.network(
-                                            controller.heroDetails[index].png,
+                                            controller.runnerDetails[index].png,
                                           ),
                                         ),
                                         flex: 2,
@@ -98,7 +99,7 @@ class RunnerDtailsPage extends StatelessWidget {
                                               .start,
                                           children:[
                                             Text(
-                                              controller.heroDetails[index].name,
+                                              controller.runnerDetails[index].name,
                                               style: GoogleFonts.lato(
                                                   color: Colors.white,
 
@@ -108,7 +109,7 @@ class RunnerDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Run",style: GoogleFonts.lato(color: Colors.white),),
                                                 Text(
-                                                  controller.heroDetails[index].bkrun,
+                                                  controller.runnerDetails[index].bkrun,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -119,7 +120,7 @@ class RunnerDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Cc",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].cc,
+                                                  controller.runnerDetails[index].cc,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -130,7 +131,7 @@ class RunnerDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Price: ",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].price,
+                                                  controller.runnerDetails[index].price,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -141,7 +142,7 @@ class RunnerDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Engine Condition: ",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].engcondition,
+                                                  controller.runnerDetails[index].engcondition,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -152,7 +153,7 @@ class RunnerDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Paper",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].papers,
+                                                  controller.runnerDetails[index].papers,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
 
@@ -167,7 +168,7 @@ class RunnerDtailsPage extends StatelessWidget {
                                                   fontSize: height*0.01,
                                                 ),),
                                                 Text(
-                                                  controller.heroDetails[index].bncng,
+                                                  controller.runnerDetails[index].bncng,
                                                   style: GoogleFonts.lato( fontSize: height*0.01,
                                                     color: Colors.white,
                                                   ),
@@ -219,7 +220,7 @@ class RunnerDtailsPage extends StatelessWidget {
                                                   color: Colors.white,
                                                   fontSize: height*0.01,
                                                 ),),
-                                                Text(controller.heroDetails[index].health,style: GoogleFonts.lato(
+                                                Text(controller.runnerDetails[index].health,style: GoogleFonts.lato(
                                                   color: Colors.white,
                                                   fontSize: height*0.01,
                                                 ),),
@@ -237,7 +238,7 @@ class RunnerDtailsPage extends StatelessWidget {
                                             Column(
                                               children: [
 
-                                                Text(controller.heroDetails[index].model,style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
+                                                Text(controller.runnerDetails[index].model,style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
                                                 Text("contact with us",style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
                                                 Text("01921133520",style: GoogleFonts.lato(color: Colors.black,fontSize: height*0.009)),
                                               ],

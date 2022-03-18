@@ -1,5 +1,6 @@
 
 import 'package:bikesellapp/controller/all_brnd_dtils_contol/hero_contoller.dart';
+import 'package:bikesellapp/controller/all_brnd_dtils_contol/tvs_controller.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/gallary_photo_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,37 +12,37 @@ import 'dart:ui' as ui;
 class TvsDtailsPage extends StatelessWidget {
   TvsDtailsPage({Key? key}) : super(key: key);
   final double _borderRadius = 24;
-  final heroBikeDetailsController = Get.put(HrController());
+  final tvsBikeDetailsController = Get.put(TvsController());
   @override
   Widget build(BuildContext context) {
     final double height=MediaQuery.of(context).size.height;
     final  double width=MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
-          title: Text("Hi"),
+          backgroundColor: Colors.red,
+          title: Text("Tvs Brands All Bike",style: GoogleFonts.lato(),),
         ),
         body: Column(
             children: [
-              Expanded(child: GetX<HrController>(
+              Expanded(child: GetX<TvsController>(
                   builder: (controller) {
                     return ListView.builder(
-                      itemCount: controller.heroDetails.length,
+                      itemCount: controller.tvsDetails.length,
                       scrollDirection: Axis.vertical,
                       itemBuilder: (context, index) {
                         return InkWell(onTap: () {
                           Get.to(PhotoViewgallry(
-                            photo1: controller.heroDetails[index].fullphoto,
-                            photo2: controller.heroDetails[index].sidephoto,
-                            photo3: controller.heroDetails[index].thirdphoto,
-                            photo4: controller.heroDetails[index].forthphoto,
-                            photo5: controller.heroDetails[index].fifthphoto,
-                            photo6: controller.heroDetails[index].sixthphoto,
-                            photo7: controller.heroDetails[index].saventhphoto,
+                            photo1: controller.tvsDetails[index].fullphoto,
+                            photo2: controller.tvsDetails[index].sidephoto,
+                            photo3: controller.tvsDetails[index].thirdphoto,
+                            photo4: controller.tvsDetails[index].forthphoto,
+                            photo5: controller.tvsDetails[index].fifthphoto,
+                            photo6: controller.tvsDetails[index].sixthphoto,
+                            photo7: controller.tvsDetails[index].saventhphoto,
                           ));
                         },
                           child: Card(
-                            shadowColor: Colors.blue,
+                            shadowColor: Colors.red,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0),),
                             child:  Stack(
@@ -52,14 +53,14 @@ class TvsDtailsPage extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(
                                         _borderRadius),
                                     gradient: LinearGradient(colors: [
-                                      Color(0xff6DC8F3),
-                                      Color(0xff73A1F9)
+                                      Color(0xffFF5B95),
+                                      Color(0xffF8556D)
                                     ],
                                         begin: Alignment.topLeft,
                                         end: Alignment.bottomRight),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Color(0xff73A1F9),
+                                        color: Color(0xffFF5B95),
                                         blurRadius: 12,
                                         offset: Offset(0, 6),
                                       ),
@@ -73,8 +74,8 @@ class TvsDtailsPage extends StatelessWidget {
                                   child: CustomPaint(
                                       size: Size(100, 150),
                                       painter: CustomCardShapePainter(_borderRadius,
-                                        Color(0xff6DC8F3),
-                                        Color(0xff73A1F9),)
+                                          Color(0xffFF5B95),
+                                          Color(0xffF8556D))
                                   ),
                                 ),
                                 Positioned.fill(
@@ -85,7 +86,7 @@ class TvsDtailsPage extends StatelessWidget {
                                           radius: height,
                                           backgroundColor: Color(0xffeaeded),
                                           child: Image.network(
-                                            controller.heroDetails[index].png,
+                                            controller.tvsDetails[index].png,
                                           ),
                                         ),
                                         flex: 2,
@@ -98,7 +99,7 @@ class TvsDtailsPage extends StatelessWidget {
                                               .start,
                                           children:[
                                             Text(
-                                              controller.heroDetails[index].name,
+                                              controller.tvsDetails[index].name,
                                               style: GoogleFonts.lato(
                                                   color: Colors.white,
 
@@ -108,7 +109,7 @@ class TvsDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Run",style: GoogleFonts.lato(color: Colors.white),),
                                                 Text(
-                                                  controller.heroDetails[index].bkrun,
+                                                  controller.tvsDetails[index].bkrun,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -119,7 +120,7 @@ class TvsDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Cc",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].cc,
+                                                  controller.tvsDetails[index].cc,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -130,7 +131,7 @@ class TvsDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Price: ",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].price,
+                                                  controller.tvsDetails[index].price,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -141,7 +142,7 @@ class TvsDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Engine Condition: ",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].engcondition,
+                                                  controller.tvsDetails[index].engcondition,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -152,7 +153,7 @@ class TvsDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Paper",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].papers,
+                                                  controller.tvsDetails[index].papers,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
 
@@ -167,7 +168,7 @@ class TvsDtailsPage extends StatelessWidget {
                                                   fontSize: height*0.01,
                                                 ),),
                                                 Text(
-                                                  controller.heroDetails[index].bncng,
+                                                  controller.tvsDetails[index].bncng,
                                                   style: GoogleFonts.lato( fontSize: height*0.01,
                                                     color: Colors.white,
                                                   ),
@@ -218,7 +219,7 @@ class TvsDtailsPage extends StatelessWidget {
                                                   color: Colors.white,
                                                   fontSize: height*0.01,
                                                 ),),
-                                                Text(controller.heroDetails[index].health,style: GoogleFonts.lato(
+                                                Text(controller.tvsDetails[index].health,style: GoogleFonts.lato(
                                                   color: Colors.white,
                                                   fontSize: height*0.01,
                                                 ),),
@@ -236,7 +237,7 @@ class TvsDtailsPage extends StatelessWidget {
                                             Column(
                                               children: [
 
-                                                Text(controller.heroDetails[index].model,style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
+                                                Text(controller.tvsDetails[index].model,style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
                                                 Text("contact with us",style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
                                                 Text("01921133520",style: GoogleFonts.lato(color: Colors.black,fontSize: height*0.009)),
                                               ],

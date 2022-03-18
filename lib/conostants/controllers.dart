@@ -1,4 +1,3 @@
-
 import 'package:bikesellapp/controller/all_brnd_dtils_contol/bajaj_contoller.dart';
 import 'package:bikesellapp/controller/all_brnd_dtils_contol/hero_contoller.dart';
 import 'package:bikesellapp/controller/all_brnd_dtils_contol/runner_controller.dart';

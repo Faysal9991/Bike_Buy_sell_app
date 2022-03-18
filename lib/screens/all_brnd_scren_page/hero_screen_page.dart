@@ -18,8 +18,8 @@ class HeroDtailsPage extends StatelessWidget {
     final  double width=MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
-          title: Text("Hi"),
+          backgroundColor: Color(0xff42E695),
+          title: Text("Hero Brands All Bike",style: GoogleFonts.lato(),),
         ),
         body: Column(
             children: [
@@ -41,7 +41,7 @@ class HeroDtailsPage extends StatelessWidget {
                           ));
                         },
                           child: Card(
-                            shadowColor: Colors.blue,
+                            shadowColor: Colors.green,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0),),
                             child:  Stack(
@@ -52,14 +52,14 @@ class HeroDtailsPage extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(
                                         _borderRadius),
                                     gradient: LinearGradient(colors: [
-                                      Color(0xff6DC8F3),
-                                      Color(0xff73A1F9)
+                                      Color(0xff42E695),
+                                      Color(0xff3BB2B8)
                                     ],
                                         begin: Alignment.topLeft,
                                         end: Alignment.bottomRight),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Color(0xff73A1F9),
+                                        color: Color(0xff3BB2B8),
                                         blurRadius: 12,
                                         offset: Offset(0, 6),
                                       ),
@@ -73,8 +73,8 @@ class HeroDtailsPage extends StatelessWidget {
                                   child: CustomPaint(
                                       size: Size(100, 150),
                                       painter: CustomCardShapePainter(_borderRadius,
-                                        Color(0xff6DC8F3),
-                                        Color(0xff73A1F9),)
+                                          Color(0xff42E695),
+                                          Color(0xff3BB2B8))
                                   ),
                                 ),
                                 Positioned.fill(

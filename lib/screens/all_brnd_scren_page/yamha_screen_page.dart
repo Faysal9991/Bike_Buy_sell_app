@@ -1,5 +1,5 @@
 
-import 'package:bikesellapp/controller/all_brnd_dtils_contol/hero_contoller.dart';
+import 'package:bikesellapp/controller/all_brnd_dtils_contol/yamha_controller.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/gallary_photo_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,7 +11,7 @@ import 'dart:ui' as ui;
 class YamhaDtailsPage extends StatelessWidget {
   YamhaDtailsPage({Key? key}) : super(key: key);
   final double _borderRadius = 24;
-  final heroBikeDetailsController = Get.put(HrController());
+  final yamhaBikeDetailsController = Get.put(YamhaController());
   @override
   Widget build(BuildContext context) {
     final double height=MediaQuery.of(context).size.height;
@@ -23,21 +23,21 @@ class YamhaDtailsPage extends StatelessWidget {
         ),
         body: Column(
             children: [
-              Expanded(child: GetX<HrController>(
+              Expanded(child: GetX<YamhaController>(
                   builder: (controller) {
                     return ListView.builder(
-                      itemCount: controller.heroDetails.length,
+                      itemCount: controller.yamhaDetails.length,
                       scrollDirection: Axis.vertical,
                       itemBuilder: (context, index) {
                         return InkWell(onTap: () {
                           Get.to(PhotoViewgallry(
-                            photo1: controller.heroDetails[index].fullphoto,
-                            photo2: controller.heroDetails[index].sidephoto,
-                            photo3: controller.heroDetails[index].thirdphoto,
-                            photo4: controller.heroDetails[index].forthphoto,
-                            photo5: controller.heroDetails[index].fifthphoto,
-                            photo6: controller.heroDetails[index].sixthphoto,
-                            photo7: controller.heroDetails[index].saventhphoto,
+                            photo1: controller.yamhaDetails[index].fullphoto,
+                            photo2: controller.yamhaDetails[index].sidephoto,
+                            photo3: controller.yamhaDetails[index].thirdphoto,
+                            photo4: controller.yamhaDetails[index].forthphoto,
+                            photo5: controller.yamhaDetails[index].fifthphoto,
+                            photo6: controller.yamhaDetails[index].sixthphoto,
+                            photo7: controller.yamhaDetails[index].saventhphoto,
                           ));
                         },
                           child: Card(
@@ -85,7 +85,7 @@ class YamhaDtailsPage extends StatelessWidget {
                                           radius: height,
                                           backgroundColor: Color(0xffeaeded),
                                           child: Image.network(
-                                            controller.heroDetails[index].png,
+                                            controller.yamhaDetails[index].png,
                                           ),
                                         ),
                                         flex: 2,
@@ -98,7 +98,7 @@ class YamhaDtailsPage extends StatelessWidget {
                                               .start,
                                           children:[
                                             Text(
-                                              controller.heroDetails[index].name,
+                                              controller.yamhaDetails[index].name,
                                               style: GoogleFonts.lato(
                                                   color: Colors.white,
 
@@ -108,7 +108,7 @@ class YamhaDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Run",style: GoogleFonts.lato(color: Colors.white),),
                                                 Text(
-                                                  controller.heroDetails[index].bkrun,
+                                                  controller.yamhaDetails[index].bkrun,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -119,7 +119,7 @@ class YamhaDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Cc",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].cc,
+                                                  controller.yamhaDetails[index].cc,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -130,7 +130,7 @@ class YamhaDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Price: ",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].price,
+                                                  controller.yamhaDetails[index].price,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -141,7 +141,7 @@ class YamhaDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Engine Condition: ",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].engcondition,
+                                                  controller.yamhaDetails[index].engcondition,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
                                                   ),
@@ -152,7 +152,7 @@ class YamhaDtailsPage extends StatelessWidget {
                                               children: [
                                                 Text("Paper",style: GoogleFonts.lato(color: Colors.white)),
                                                 Text(
-                                                  controller.heroDetails[index].papers,
+                                                  controller.yamhaDetails[index].papers,
                                                   style: GoogleFonts.lato(
                                                     color: Colors.white,
 
@@ -167,7 +167,7 @@ class YamhaDtailsPage extends StatelessWidget {
                                                   fontSize: height*0.01,
                                                 ),),
                                                 Text(
-                                                  controller.heroDetails[index].bncng,
+                                                  controller.yamhaDetails[index].bncng,
                                                   style: GoogleFonts.lato( fontSize: height*0.01,
                                                     color: Colors.white,
                                                   ),
@@ -217,7 +217,7 @@ class YamhaDtailsPage extends StatelessWidget {
                                                   color: Colors.white,
                                                   fontSize: height*0.01,
                                                 ),),
-                                                Text(controller.heroDetails[index].health,style: GoogleFonts.lato(
+                                                Text(controller.yamhaDetails[index].health,style: GoogleFonts.lato(
                                                   color: Colors.white,
                                                   fontSize: height*0.01,
                                                 ),),
@@ -235,7 +235,7 @@ class YamhaDtailsPage extends StatelessWidget {
                                             Column(
                                               children: [
 
-                                                Text(controller.heroDetails[index].model,style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
+                                                Text(controller.yamhaDetails[index].model,style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
                                                 Text("contact with us",style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
                                                 Text("01921133520",style: GoogleFonts.lato(color: Colors.black,fontSize: height*0.009)),
                                               ],

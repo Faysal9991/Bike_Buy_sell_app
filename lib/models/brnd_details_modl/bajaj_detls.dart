@@ -19,9 +19,6 @@ class BajajDetailsModel{
 
 
 
-
-
-
   late String name;
   late String health;
   late String price;

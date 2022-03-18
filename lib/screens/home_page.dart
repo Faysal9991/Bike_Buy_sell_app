@@ -7,10 +7,12 @@ import 'package:bikesellapp/screens/all_brnd_scren_page/hero_screen_page.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/ranner_screen_page.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/suzuki_screen_page.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/tvs_screen_page.dart';
+import 'package:bikesellapp/screens/all_brnd_scren_page/waton_screen_page.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/yamha_screen_page.dart';
+import 'package:bikesellapp/screens/drawer_page/sell_rule.dart';
+import 'package:bikesellapp/screens/drawer_page/tips_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:clay_containers/clay_containers.dart';
@@ -31,19 +33,113 @@ class HomePage extends StatelessWidget {
     final  double width=MediaQuery.of(context).size.width;
     Color baseColor = Color(0xFFF2F2F2);
     return Scaffold(
-      drawer: Drawer(),
+      drawer: Container(
+        width: width/1.5,
+        decoration: BoxDecoration(),
+        child: Drawer(
+          child: Column(
+            children: [
+              SizedBox(height: height*0.03,),
+              Container(
+                height: height*0.15,
+                width: width*0.3,
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(150),
+                  image: DecorationImage(
+                    image: NetworkImage(controller.googleAccount.value?.photoUrl??''.toString(),),fit: BoxFit.cover,
+                  )
+                ),
+              ),
+              Text(controller.googleAccount.value?.displayName??'',style: TextStyle(fontSize:height*0.03),),
+              Text(controller.googleAccount.value?.email??'',style: TextStyle(fontSize:height*0.02),),
+              SizedBox(height: height*0.03,),
+              Padding(
+                padding:  EdgeInsets.only(top: height*0.04,left: width*0.05),
+                child: Column(
+                  children: [
+
+                    Divider(thickness: 2,),
+                    InkWell(onTap: (){
+
+              Get.to(TipsPage());
+              },
+                      child: Row(
+                        children: [
+                          Icon(Icons.tips_and_updates_outlined,size: height*0.04,),
+                          Padding(
+                            padding:  EdgeInsets.only(left: width*0.05),
+                            child: Text("Tips",style: GoogleFonts.lato(fontSize: height*0.03),),
+                          )
+                        ],
+                      ),
+                    ),SizedBox(height: height*0.03,),
+                    Divider(thickness: 2,),
+                    InkWell(onTap: (){
+
+                      Get.to(SellRule());
+                    },
+                      child: Row(
+                        children: [
+                          Icon(Icons.hourglass_bottom,size: height*0.04,),
+                          Padding(
+                            padding:  EdgeInsets.only(left: width*0.05),
+                            child: Text("বিক্রির নিয়ম",style: GoogleFonts.lato(fontSize: height*0.03),),
+                          )
+                        ],
+                      ),
+                    ),SizedBox(height: height*0.03,),
+                    Divider(thickness: 2,),
+                    Row(
+                      children: [
+                        Icon(Icons.settings_applications,size: height*0.04,),
+                        Padding(
+                          padding:  EdgeInsets.only(left: width*0.05),
+                          child: Text("Settings",style: GoogleFonts.lato(fontSize: height*0.03),),
+                        )
+                      ],
+                    ),SizedBox(height: height*0.03,),
+                    Divider(thickness: 2,),
+                    InkWell(onTap: (){controller.logout();},
+                      child: Row(
+                        children: [
+                          Icon(Icons.logout,size: height*0.04,),
+                          Padding(
+                            padding:  EdgeInsets.only(left: width*0.05),
+                            child: Text("Log out",style: GoogleFonts.lato(fontSize: height*0.03),),
+                          )
+                        ],
+                      ),
+                    ),SizedBox(height: height*0.03,),
+                    Divider(thickness: 2,),
+                    Row(
+                      children: [
+                        Icon(Icons.account_circle,size: height*0.04,),
+                        Padding(
+                          padding:  EdgeInsets.only(left: width*0.05),
+                          child: Text("About Us",style: GoogleFonts.lato(fontSize: height*0.03),),
+                        )
+                      ],
+                    ),SizedBox(height: height*0.03,),
+                  ],
+                )
+
+              )
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.green,
 
         title: Text("Home"),
       ),
       body:  Column(
-        children: [GetX<BrandController>(
+        children: [
+          GetX<OfferController>(
       builder: (controller){
         return   Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Container(
-        color: baseColor,
         child: ClayContainer(
         borderRadius: 15,
         color: baseColor,
@@ -51,11 +147,22 @@ class HomePage extends StatelessWidget {
         width: width*1.7,
         child: Column(
         children: [
-        Center(child: ClayText("Todays Offer!",style:GoogleFonts.lato(fontSize: height*0.03),color: Color(0xffbdc3c7),)),
-        Text(offercontroller.todaysOffer[0].name)
+        Center(child:
+        ClayText("Todays Offer!",style:GoogleFonts.lato(fontSize: height*0.03),color: Color(0xffbdc3c7),)),
+       Padding(
+         padding:  EdgeInsets.only(left: width*0.07),
+         child: Row(
+           children: [
+             Image.network(controller.todaysOffer[0].photo,height: height*0.1,),
+             Icon(Icons.exposure_plus_1_rounded,color: Colors.green,size: height*0.09,),
+             Image.network(controller.todaysOffer[0].png,height: height*0.1,),
+
+           ],
+         ),
+       ),
+          Text(controller.todaysOffer[0].offer,style: GoogleFonts.lato(color: Colors.green),)
         ],
         ),
-    ),
     ),
     );
     },
@@ -88,7 +195,7 @@ class HomePage extends StatelessWidget {
 
                         children: [//TVS
                           Padding(
-                            padding:EdgeInsets.only(left: width*0.02),
+                            padding:EdgeInsets.only(left: width*0.02,bottom: height*0.017),
                             child: InkWell(onTap: (){
 
                               Get.to(TvsDtailsPage());
@@ -113,80 +220,93 @@ class HomePage extends StatelessWidget {
                                       )
                                     ]
                                 ),
-                                child: Column(
-                                  children: [
-                                    Image.network(controller.brandDetails[4].png.toString(),height: height*0.15,width: width/1.5,),
-                                    Text(controller.brandDetails[4].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
-                                  ],
+                                child: FittedBox(
+                                  child: Column(
+                                    children: [
+                                      Image.network(controller.brandDetails[4].png.toString(),height: height*0.15,width:width*0.5,),
+                                      Text(controller.brandDetails[4].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                           //Suzuki
                           Padding(
-                            padding:EdgeInsets.only(left: width*0.02),
-                            child: Container(
-                              height: height*0.2,
-                              width: width*0.31,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(15),
-                                  boxShadow: [BoxShadow(
-                                      color: Colors.black45,
-                                      spreadRadius: 1,
-                                      blurRadius: 8,
-                                      offset: Offset(4,4)
-                                  ),
-                                    BoxShadow(
-                                        color: Colors.white,
+                            padding:EdgeInsets.only(left: width*0.02,bottom: height*0.017),
+                            child: InkWell(onTap: (){
+
+                              Get.to(SuziKiDtailsPage());
+                            },
+                              child: FittedBox(
+                                child: Container(
+                                height: height*0.2,
+                                width: width*0.31,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
+                                    boxShadow: [BoxShadow(
+                                        color: Colors.black45,
                                         spreadRadius: 1,
                                         blurRadius: 8,
-                                        offset: Offset(-4,-4)
-                                    )
-                                  ]
-                              ),
-                              child: Column(
-                                children: [
-                                  Image.network(controller.brandDetails[3].png.toString(),height: height*0.15,width: width/1.5,),
-                                  Text(controller.brandDetails[3].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
-                                ],
-                              ),
+                                        offset: Offset(4,4)
+                                    ),
+                                      BoxShadow(
+                                          color: Colors.white,
+                                          spreadRadius: 1,
+                                          blurRadius: 8,
+                                          offset: Offset(-4,-4)
+                                      )
+                                    ]
+                                ),
+                                child: Column(
+                                  children: [
+                                    Image.network(controller.brandDetails[3].png.toString(),height: height*0.15,width:width*0.5,),
+                                    Text(controller.brandDetails[3].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
+                                  ],
+                                ),
+                              ),)
                             ),
                           ),
                           //yamha
                           Padding(
-                            padding:EdgeInsets.only(left: width*0.02),
-                            child: Container(
-                              height: height*0.2,
-                              width: width*0.31,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(15),
-                                  boxShadow: [BoxShadow(
-                                      color: Colors.black45,
-                                      spreadRadius: 1,
-                                      blurRadius: 8,
-                                      offset: Offset(4,4)
-                                  ),
-                                    BoxShadow(
-                                        color: Colors.white,
+                            padding:EdgeInsets.only(left: width*0.02,bottom: height*0.017),
+                            child: InkWell(onTap: (){
+
+                              Get.to(YamhaDtailsPage());
+                            },
+                              child: Container(
+                                height: height*0.2,
+                                width: width*0.31,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
+                                    boxShadow: [BoxShadow(
+                                        color: Colors.black45,
                                         spreadRadius: 1,
                                         blurRadius: 8,
-                                        offset: Offset(-4,-4)
-                                    )
-                                  ]
-                              ),
-                              child: Column(
-                                children: [
-                                  Image.network(controller.brandDetails[6].png.toString(),height: height*0.15,width: width/1.5,),
-                                  Text(controller.brandDetails[6].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
-                                ],
+                                        offset: Offset(4,4)
+                                    ),
+                                      BoxShadow(
+                                          color: Colors.white,
+                                          spreadRadius: 1,
+                                          blurRadius: 8,
+                                          offset: Offset(-4,-4)
+                                      )
+                                    ]
+                                ),
+                                child: Column(
+                                  children: [
+                                    Image.network(controller.brandDetails[6].png.toString(),height: height*0.15,width:width*0.5,),
+                                    Text(controller.brandDetails[6].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                           //Bajaj
                           Padding(
-                            padding:EdgeInsets.only(left: width*0.02),
+                            padding:EdgeInsets.only(left: width*0.02,bottom: height*0.017),
                             child: InkWell(onTap: (){
 
                               Get.to(BajaDtailsPage());
@@ -213,7 +333,7 @@ class HomePage extends StatelessWidget {
                                 ),
                                 child: Column(
                                   children: [
-                                    Image.network(controller.brandDetails[0].png.toString(),height: height*0.15,width: width/1.5,),
+                                    Image.network(controller.brandDetails[0].png.toString(),height: height*0.15,width:width*0.5,),
                                     Text(controller.brandDetails[0].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
                                   ],
                                 ),
@@ -222,94 +342,109 @@ class HomePage extends StatelessWidget {
                           ),
                           //Hero
                           Padding(
-                            padding:EdgeInsets.only(left: width*0.02),
-                            child: Container(
-                              height: height*0.2,
-                              width: width*0.31,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(15),
-                                  boxShadow: [BoxShadow(
-                                      color: Colors.black45,
-                                      spreadRadius: 1,
-                                      blurRadius: 8,
-                                      offset: Offset(4,4)
-                                  ),
-                                    BoxShadow(
-                                        color: Colors.white,
+                            padding:EdgeInsets.only(left: width*0.02,bottom: height*0.017),
+                            child: InkWell(onTap: (){
+
+                              Get.to(HeroDtailsPage());
+                            },
+                              child: Container(
+                                height: height*0.2,
+                                width: width*0.31,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
+                                    boxShadow: [BoxShadow(
+                                        color: Colors.black45,
                                         spreadRadius: 1,
                                         blurRadius: 8,
-                                        offset: Offset(-4,-4)
-                                    )
-                                  ]
-                              ),
-                              child: Column(
-                                children: [
-                                  Image.network(controller.brandDetails[1].png.toString(),height: height*0.15,width: width/1.5,),
-                                  Text(controller.brandDetails[1].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
-                                ],
+                                        offset: Offset(4,4)
+                                    ),
+                                      BoxShadow(
+                                          color: Colors.white,
+                                          spreadRadius: 1,
+                                          blurRadius: 8,
+                                          offset: Offset(-4,-4)
+                                      )
+                                    ]
+                                ),
+                                child: Column(
+                                  children: [
+                                    Image.network(controller.brandDetails[1].png.toString(),height: height*0.15,width:width*0.5,),
+                                    Text(controller.brandDetails[1].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                           //runner
                           Padding(
-                            padding:EdgeInsets.only(left: width*0.02),
-                            child: Container(
-                              height: height*0.2,
-                              width: width*0.31,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(15),
-                                  boxShadow: [BoxShadow(
-                                      color: Colors.black45,
-                                      spreadRadius: 1,
-                                      blurRadius: 8,
-                                      offset: Offset(4,4)
-                                  ),
-                                    BoxShadow(
-                                        color: Colors.white,
+                            padding:EdgeInsets.only(left: width*0.02,bottom: height*0.017),
+                            child: InkWell(onTap: (){
+
+                              Get.to(RunnerDtailsPage());
+                            },
+                              child: Container(
+                                height: height*0.2,
+                                width: width*0.31,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
+                                    boxShadow: [BoxShadow(
+                                        color: Colors.black45,
                                         spreadRadius: 1,
                                         blurRadius: 8,
-                                        offset: Offset(-4,-4)
-                                    )
-                                  ]
-                              ),
-                              child: Column(
-                                children: [
-                                  Image.network(controller.brandDetails[2].png.toString(),height: height*0.15,width: width/1.5,),
-                                  Text(controller.brandDetails[2].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
-                                ],
+                                        offset: Offset(4,4)
+                                    ),
+                                      BoxShadow(
+                                          color: Colors.white,
+                                          spreadRadius: 1,
+                                          blurRadius: 8,
+                                          offset: Offset(-4,-4)
+                                      )
+                                    ]
+                                ),
+                                child: Column(
+                                  children: [
+                                    Image.network(controller.brandDetails[2].png.toString(),height: height*0.15,width:width*0.5,),
+                                    Text(controller.brandDetails[2].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                           //walton
                           Padding(
-                            padding:EdgeInsets.only(left: width*0.02),
-                            child: Container(
-                              height: height*0.2,
-                              width: width*0.31,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(15),
-                                  boxShadow: [BoxShadow(
-                                      color: Colors.black45,
-                                      spreadRadius: 1,
-                                      blurRadius: 8,
-                                      offset: Offset(4,4)
-                                  ),
-                                    BoxShadow(
-                                        color: Colors.white,
+                            padding:EdgeInsets.only(left: width*0.02,bottom: height*0.017),
+                            child: InkWell(onTap: (){
+
+                              Get.to(WatlonDtailsPage());
+                            },
+                              child: Container(
+                                height: height*0.2,
+                                width: width*0.31,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
+                                    boxShadow: [BoxShadow(
+                                        color: Colors.black45,
                                         spreadRadius: 1,
                                         blurRadius: 8,
-                                        offset: Offset(-4,-4)
-                                    )
-                                  ]
-                              ),
-                              child: Column(
-                                children: [
-                                  Image.network(controller.brandDetails[5].png.toString(),height: height*0.15,width: width/1.5,),
-                                  Text(controller.brandDetails[5].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
-                                ],
+                                        offset: Offset(4,4)
+                                    ),
+                                      BoxShadow(
+                                          color: Colors.white,
+                                          spreadRadius: 1,
+                                          blurRadius: 8,
+                                          offset: Offset(-4,-4)
+                                      )
+                                    ]
+                                ),
+                                child: Column(
+                                  children: [
+                                    Image.network(controller.brandDetails[5].png.toString(),height: height*0.15,width:width*0.5,),
+                                    Text(controller.brandDetails[5].name,style: GoogleFonts.lato(fontSize: height*0.03,fontWeight: FontWeight.bold),),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -321,8 +456,8 @@ class HomePage extends StatelessWidget {
           Text("New Collction", style: GoogleFonts.lato(
               fontSize: height*0.02,fontWeight: FontWeight.bold
           ),),
-          SizedBox(height: height*0.006,),
-          Expanded(child: GetX<UpdateController>(
+          Expanded(
+              child: GetX<UpdateController>(
             builder: (controller){
               return ListView.builder(
                   itemCount: controller.updateBike.length,
@@ -335,7 +470,7 @@ class HomePage extends StatelessWidget {
                       child:  Stack(
                         children: <Widget>[
                           Container(
-                            height: height*0.17,
+                            height: height*0.16,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(
                                   _borderRadius),
@@ -369,17 +504,18 @@ class HomePage extends StatelessWidget {
                             child: Row(
                               children: <Widget>[
                                 Expanded(
-                                  child: CircleAvatar(
-                                    radius: height,
-                                    backgroundColor: Color(0xffeaeded),
-                                    child: Image.network(
-                                      controller.updateBike[index].png,
+                                    child: CircleAvatar(
+                                      radius: height,
+                                      backgroundColor: Color(0xffeaeded),
+                                      child: Image.network(
+                                        controller.updateBike[index].png,fit: BoxFit.cover,
+                                      ),
                                     ),
-                                  ),
+
                                   flex: 2,
                                 ),
                                 Expanded(
-                                  flex: 4,
+                                  flex: 5,
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment
@@ -429,18 +565,10 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                                 Expanded(
-                                  flex: 2,
+                                  flex: 3,
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
-                                      Text(
-                                        "",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontFamily: 'Avenir',
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w700),
-                                      ),
 
                                       Padding(
                                         padding:  EdgeInsets.only(left: width*0.067),
@@ -471,8 +599,7 @@ class HomePage extends StatelessWidget {
                   }
               ) ;
             },
-          )
-          ),
+          )),
 
         ],
       ),

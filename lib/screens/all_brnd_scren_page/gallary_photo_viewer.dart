@@ -1,5 +1,7 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 
 
 class PhotoViewgallry extends StatelessWidget {
@@ -26,24 +28,36 @@ class PhotoViewgallry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("hi2"),
+      appBar: AppBar(centerTitle: true,
+        backgroundColor: Colors.green,
+        title: Text("View all Photo"),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            Image.network(photo1),
-            Image.network(photo2),
-            Image.network(photo3),
-            Image.network(photo4),
-            Image.network(photo5),
-            Image.network(photo6),
-            Image.network(photo7),
-          
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+             Card(shadowColor: Colors.black,
+                 child: Image.network(photo1)),
+               Card(shadowColor: Colors.black,
+                   child: Image.network(photo2)),
+              Card(shadowColor: Colors.black,
+                  child: Image.network(photo3)),
+              Card(shadowColor: Colors.black,
+                  child: Image.network(photo4)),
+              Card(shadowColor: Colors.black,
+                  child: Image.network(photo5)),
+               Card(shadowColor: Colors.black,
+                   child: Image.network(photo6)),
+      Card(shadowColor: Colors.black,
+          child: Image.network(photo7)),
+
+            ],
+          ),
         ),
-      ),
+       ),
     );
+
   }
 }
