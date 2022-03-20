@@ -2,6 +2,7 @@ import 'package:bikesellapp/controller/brand_controller.dart';
 import 'package:bikesellapp/controller/new_update_controller.dart';
 import 'package:bikesellapp/screens/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:change_app_package_name/change_app_package_name.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

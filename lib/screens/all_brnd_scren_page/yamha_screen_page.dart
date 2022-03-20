@@ -19,7 +19,7 @@ class YamhaDtailsPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
-          title: Text("Hi"),
+          title: Text("Yamha Brands All Bike",style: GoogleFonts.lato(),),
         ),
         body: Column(
             children: [
@@ -237,7 +237,7 @@ class YamhaDtailsPage extends StatelessWidget {
 
                                                 Text(controller.yamhaDetails[index].model,style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
                                                 Text("contact with us",style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
-                                                Text("01921133520",style: GoogleFonts.lato(color: Colors.black,fontSize: height*0.009)),
+                                                Text("01907334326",style: GoogleFonts.lato(color: Colors.black,fontSize: height*0.009)),
                                               ],
                                             ),
                                             // RatingBar(rating: controller.bajajDetails[index].rating.toDouble()),

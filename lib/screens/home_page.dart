@@ -9,6 +9,7 @@ import 'package:bikesellapp/screens/all_brnd_scren_page/suzuki_screen_page.dart'
 import 'package:bikesellapp/screens/all_brnd_scren_page/tvs_screen_page.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/waton_screen_page.dart';
 import 'package:bikesellapp/screens/all_brnd_scren_page/yamha_screen_page.dart';
+import 'package:bikesellapp/screens/drawer_page/about_us_page.dart';
 import 'package:bikesellapp/screens/drawer_page/sell_rule.dart';
 import 'package:bikesellapp/screens/drawer_page/tips_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,7 +18,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:clay_containers/clay_containers.dart';
 import 'dart:ui' as ui;
-import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
+
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -112,14 +113,19 @@ class HomePage extends StatelessWidget {
                       ),
                     ),SizedBox(height: height*0.03,),
                     Divider(thickness: 2,),
-                    Row(
-                      children: [
-                        Icon(Icons.account_circle,size: height*0.04,),
-                        Padding(
-                          padding:  EdgeInsets.only(left: width*0.05),
-                          child: Text("About Us",style: GoogleFonts.lato(fontSize: height*0.03),),
-                        )
-                      ],
+                    InkWell(onTap: (){
+
+                      Get.to(AboutUsPage());
+                    },
+                      child: Row(
+                        children: [
+                          Icon(Icons.account_circle,size: height*0.04,),
+                          Padding(
+                            padding:  EdgeInsets.only(left: width*0.05),
+                            child: Text("About Us",style: GoogleFonts.lato(fontSize: height*0.03),),
+                          )
+                        ],
+                      ),
                     ),SizedBox(height: height*0.03,),
                   ],
                 )
@@ -129,8 +135,8 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      appBar: AppBar(
-        backgroundColor: Colors.green,
+      appBar: AppBar(centerTitle: true,
+        backgroundColor:  Color(0xff2980b9),
 
         title: Text("Home"),
       ),
@@ -148,7 +154,7 @@ class HomePage extends StatelessWidget {
         child: Column(
         children: [
         Center(child:
-        ClayText("Todays Offer!",style:GoogleFonts.lato(fontSize: height*0.03),color: Color(0xffbdc3c7),)),
+        ClayText("Todays Offer!",style:GoogleFonts.lato(fontSize: height*0.03),color: Color(0xff52be80 ),)),
        Padding(
          padding:  EdgeInsets.only(left: width*0.07),
          child: Row(
@@ -464,25 +470,25 @@ class HomePage extends StatelessWidget {
                   scrollDirection: Axis.vertical,
                   itemBuilder:(context, index){
                     return Card(
-                      shadowColor: Colors.blue,
+                      shadowColor: Colors.green,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0),),
                       child:  Stack(
                         children: <Widget>[
                           Container(
-                            height: height*0.16,
+                            height: height*0.12,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(
                                   _borderRadius),
                               gradient: LinearGradient(colors: [
                                 Color(0xff6DC8F3),
-                                Color(0xff73A1F9)
+                                Color(0xff73A1F9),
                               ],
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Color(0xff73A1F9),
+                                  color:Color(0xff73A1F9),
                                   blurRadius: 12,
                                   offset: Offset(0, 6),
                                 ),
@@ -496,8 +502,8 @@ class HomePage extends StatelessWidget {
                             child: CustomPaint(
                                 size: Size(100, 150),
                                 painter: CustomCardShapePainter(_borderRadius,
-                                  Color(0xff6DC8F3),
-                                  Color(0xff73A1F9),)
+                                    Color(0xff6DC8F3),
+                                    Color(0xff73A1F9))
                             ),
                           ),
                           Positioned.fill(
@@ -505,7 +511,7 @@ class HomePage extends StatelessWidget {
                               children: <Widget>[
                                 Expanded(
                                     child: CircleAvatar(
-                                      radius: height,
+                                      radius: height*0.07,
                                       backgroundColor: Color(0xffeaeded),
                                       child: Image.network(
                                         controller.updateBike[index].png,fit: BoxFit.cover,
@@ -541,7 +547,7 @@ class HomePage extends StatelessWidget {
                                       ),
                                       Row(
                                         children: [
-                                          Text("Cc",style: GoogleFonts.lato(color: Colors.white)),
+                                          Text("Cc ",style: GoogleFonts.lato(color: Colors.white)),
                                           Text(
                                             controller.updateBike[index].condition,
                                             style: GoogleFonts.lato(
@@ -571,7 +577,7 @@ class HomePage extends StatelessWidget {
                                     children: <Widget>[
 
                                       Padding(
-                                        padding:  EdgeInsets.only(left: width*0.067),
+                                        padding:  EdgeInsets.only(left: width*0.13),
                                         child: Row(
                                           children: [
                                             Text(controller.updateBike[index].rating),
@@ -583,7 +589,7 @@ class HomePage extends StatelessWidget {
                                       Column(
                                         children: [
                                           Text("contact with us",style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.01)),
-                                          Text("01921133520",style: GoogleFonts.lato(color: Colors.black,fontSize: height*0.015)),
+                                          Text("01907334326",style: GoogleFonts.lato(color: Colors.black,fontSize: height*0.015)),
                                         ],
                                       ),
 

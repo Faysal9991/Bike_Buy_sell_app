@@ -239,7 +239,7 @@ class TvsDtailsPage extends StatelessWidget {
 
                                                 Text(controller.tvsDetails[index].model,style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
                                                 Text("contact with us",style: GoogleFonts.lato(color: Colors.white,fontSize: height*0.009)),
-                                                Text("01921133520",style: GoogleFonts.lato(color: Colors.black,fontSize: height*0.009)),
+                                                Text("01907334326",style: GoogleFonts.lato(color: Colors.black,fontSize: height*0.009)),
                                               ],
                                             ),
                                             // RatingBar(rating: controller.bajajDetails[index].rating.toDouble()),
